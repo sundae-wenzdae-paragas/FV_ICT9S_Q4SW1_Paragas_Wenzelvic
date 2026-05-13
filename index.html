@@ -47,14 +47,27 @@
     <br>
     <div class="container text-center">
         <br>
-        <h1>Login</h1>
-        <p>Chat with your bestfriends and explore memes together. Login to Chat Memes now! </p>  
+        <h1><kbd><strong>Login</strong></kbd></h1>
+        <p class="fw-bold" ontoggle="">Chat with your bestfriends and explore memes together. Login to Chat Memes now! </p>  
     <h4><kbd class="text-info"><strong>Username:</strong></kbd></h4>
-    <input type="text" id="LoginInput" class="form-control text-center" placeholder="type here..." style="border-radius:10px;">    
+    <input type="text" id="LoginInput1" class="form-control text-center" placeholder="type here..." style="border-radius:10px;">    
     <br>
     <h4><kbd class="text-info"><strong>Password:</strong></kbd></h4>
-    <input type="text" id="LoginInput" class="form-control text-center" placeholder="type here..." style="border-radius:10px;"> 
-    <button class="btn btn-info" onclick="LoginInput()">Button </button>
+    <input type="text" id="LoginInput2" class="form-control text-center" placeholder="type here..." style="border-radius:10px;"> 
+
+    <details ontoggle="message()">
+        <summary>
+            <u><h3>instructions</h3></u>
+            <br>
+            <p id="display" class="text-light"></p>
+        </summary>
+    </details>
+<script>
+    function message(){
+            document.getElementById('display').innerHTML = "<span style='font-size: 28px;'>Enter Starboy99 and the secret password to enter.</span>";   }         
+</script>
+
+    <button class="btn btn-info" id="loginBTN" onclick="LoginInput()">Button </button>
     <br>
     <br>
     <img src="https://i.programmerhumor.io/2026/01/bcc6eff5f96e2ee7347597b79b1c5bb834c3b485dc79e7272b0d29c41726bf18.png" style="height:500px; width:auto;">
@@ -63,27 +76,46 @@
     </div>
     <br>
 <script>
-    function LoginInput(){
-        if(isNaN (LoginInput) && LoginInput ){
-            alert()
+        window.alert("Welcome back starboy99! Your password is Another.")
+        
+        let attempt_counter = 0;
+
+        function LoginInput() {
+    
+        
+        let username = document.getElementById("LoginInput1").value;
+        let pwd = document.getElementById("LoginInput2").value;
+    
+        let display = document.getElementById("display");
+        let loginBtn = document.getElementById("loginBTN");
+
+        if (username === "Starboy99" && pwd === "Another") {
+            alert("Welcome" + username + "!");
+            attempt_counter = 0; 
+            display.innerHTML = "";
+            window.location.href = "home.html";
+            alert("Thanks for loging in!!!🕊️");
+    } 
+        else {
+            // 3. Handle incorrect login
+            attempt_counter++;
+        
+        if (attempt_counter >= 3) {
+            display.innerHTML = "Access denied. Account locked!";
+            alert("Access denied. Account locked after 3 attempts!");
+            loginBtn.disabled = true; // Lock the button
+
+
+        for (let x = 0; x < 8; x++) {
+        username += "The number is " + x + "<br>";
+}
+
+        } else {
+            display.innerHTML = "Incorrect username and/or password. Attempt " + attempt_counter + " of 3";
         }
-
-
-
-        else{
-            alert()
-        }
-    window.alert("Welcome back!")
-    alert("Thanks for loging in!!!🕊️")}
+    }
+    }
 </script>
-
-<div class="container 4">
-    <script>
-        function LoginInput(){
-        document.write("How's your day?")}
-    </script>
-</div>
-
 
 
 
